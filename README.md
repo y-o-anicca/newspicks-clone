@@ -6,15 +6,26 @@
 
 * nav 
 
-*サイドバー　メインバー 
-*LOGIN /  LOG OUT  
-*signup  
-*RESET PASSWORD
-*スクレイピング 
-*ニュース画面 
-*ピック 
-*コメント　
-*MY PAGE  
-*アカウント設定
-*FOLLOW UNFOLLOW 
-*ライク
+* サイドバー　メインバー
+
+* LOGIN /  LOG OUT  
+
+* signup
+
+* RESET PASSWORD
+
+* スクレイピング 
+
+* ニュース画面 
+
+* ピック
+
+* コメント
+　
+* MY PAGE
+
+* アカウント設定
+
+* FOLLOW UNFOLLOW 
+
+* ライク
