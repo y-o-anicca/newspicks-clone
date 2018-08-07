@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##news picks メコピアプリ制作
 
-Things you may want to cover:
+*基本機能*
 
-* Ruby version
+* nav 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+*サイドバー　メインバー 
+*LOGIN /  LOG OUT  
+*signup  
+*RESET PASSWORD
+*スクレイピング 
+*ニュース画面 
+*ピック 
+*コメント　
+*MY PAGE  
+*アカウント設定
+*FOLLOW UNFOLLOW 
+*ライク
