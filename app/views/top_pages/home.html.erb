@@ -10,8 +10,15 @@
   	
     <section class="user-info">
 
-      <span><%=link_to "User_name", "#"%></span>
+      <h1>
+        <% @user = User.first %>
+        <%= gravatar_for @user %>
+      </h1>
+      <span class="user_name"><%= @user.name %></span>
+      
       <span><%=link_to "company_name", "#"%> </span>
+     
+      
     </section>
 
     

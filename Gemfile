@@ -21,6 +21,7 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'sass-rails', '>= 3.2'
 gem 'jquery-rails'
 gem "font-awesome-rails"
+gem 'bcrypt',         '3.1.11'
 
 
 group :development, :test do
@@ -29,6 +30,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'minitest-reporters'
 end
 
 group :development do
