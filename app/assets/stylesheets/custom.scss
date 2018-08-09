@@ -59,9 +59,14 @@ $gray-medium-light: #eaeaea;
 /* sidebar */
 
 .gravatar {
-  float: left;
+  
   margin-right: 10px;
+  
 }
 .user_name{
-  font-size:2em;
+  font-size:1em;
+  
+}
+.block_elem{
+  display:block;
 }
