@@ -22,8 +22,9 @@ gem 'sass-rails', '>= 3.2'
 gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'bcrypt',         '3.1.11'
+gem 'faker'
 
-
+ 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
