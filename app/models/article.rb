@@ -3,7 +3,7 @@ class Article < ApplicationRecord
   has_many :categories, through: :create_article_categories
   validates :content, presence: true
 
-# (name)カテゴリーに紐づいた投稿を返す
+  #(name)カテゴリーに紐づいた投稿を返す
   def self.categorized_as(name)
     Category.find_by(name: params[:name]).articles
   end
@@ -12,7 +12,5 @@ class Article < ApplicationRecord
   def category_list
     categories.map(&:name).join.(",")
   end
-
-
 
 end
