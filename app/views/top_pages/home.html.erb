@@ -10,8 +10,15 @@
   	
     <section class="user-info">
 
-      <span><%=link_to "User_name", "#"%></span>
-      <span><%=link_to "company_name", "#"%> </span>
+      <span class="block_elem">
+        <% @user = User.first %>
+        <%= gravatar_for @user %>
+      </span>
+      <span class="user_name block_elem"><%= @user.name %></span>
+      
+      <span><%=link_to "company_name", "#", class: "block_elem" %> </span>
+     
+      
     </section>
 
     
@@ -24,8 +31,10 @@
 	
 
   <div class="col-md-9">
+  
   	<br>
   	<br>
+
   	<div class="row col-md-offset-2">
 
   	<div class="col-md-3 bg-primary">
