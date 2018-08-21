@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :logged_in_user, only:[:pick, :create]
+
   require 'open-uri'
   require 'nokogiri'
 
@@ -13,13 +15,11 @@ class ArticlesController < ApplicationController
     page = Nokogiri::HTML(content)
     @title = page.title
     @image = page.css('img').attr('src')
-    @article = Article.new(
+    if @article = current_user.articles.create(
     title: @title,
     image: @image,
     url: params[:url]
 )
-
-    if @article.save
       @article.categories.create(status: status)
       redirect_to root_url
     else
