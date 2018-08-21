@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180821062519) do
+ActiveRecord::Schema.define(version: 20180821075849) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 20180821062519) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id", "category_id"], name: "index_create_article_categories_on_article_id_and_category_id", unique: true
+  end
+
+  create_table "microposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "content", comment: "コメント内容"
+    t.integer "user_id", comment: "ユーザー関連付け"
+    t.integer "article_id", comment: "記事関連付け"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_microposts_on_article_id"
+    t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
   create_table "picks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

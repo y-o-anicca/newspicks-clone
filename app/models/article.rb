@@ -2,7 +2,8 @@ class Article < ApplicationRecord
   has_many :create_article_categories, dependent: :destroy
   has_many :categories, through: :create_article_categories
   has_many :picks, dependent: :destroy
-  has_many :users, through: :picks 
+  has_many :users, through: :picks
+  has_many :microposts, dependent: :destroy 
 
   #(name)カテゴリーに紐づいた投稿を返す
   def self.categorized_as(name)
