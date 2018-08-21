@@ -18,7 +18,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-brand-center">
-        <li><%= link_to image_tag("newspaper.png", alt: "logo", class: "news_logo") %></li>
+        <li><%= link_to image_tag("newspaper.png", alt: "logo", class: "news_logo"), root_url %></li>
       </ul>
       <!-- menu_right -->
 
@@ -42,7 +42,7 @@
         </li>
 
         <li><%= link_to "お知らせ", "#" %></li>
-        <li><%= link_to "ピック", "#" %></li>
+        <li><%= link_to "ピック", "/pick" %></li>
         <% else %>
 
         <li><%= link_to "アカウント登録", signup_path %></li>

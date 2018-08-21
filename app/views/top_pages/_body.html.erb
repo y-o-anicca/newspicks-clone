@@ -1,12 +1,10 @@
-<!-- mainbar -->
-
-
-  <!-- <div class="col-md-9">
+<div class="col-md-9">
 
   	<br>
   	<br>
 
   	<div class="row col-md-offset-2">
+        <% @articles = Article.all %>
 				<% @articles.in_groups_of(3, false) do |row| %>
 				<% for article in row %>
 			<table>
@@ -15,7 +13,7 @@
 				<thead>
 					<tr>
 						<td>
-							<td><%= article.title %></td>
+							<td><%= image_tag article.image %></td>
 						</td>
 					</tr>
 
@@ -24,15 +22,13 @@
 				<tbody>
 
 			  <tr>
-			    <td><% for article in row_tasks %>	</td>
+			    <td><%= article.title %>	</td>
 			  </tr>
 				</tbody>
 
 
 			</table>
 			<% end %>
-				<% end %>
+			<% end %>
   	</div>
-
-
-  </div> -->
+</div>

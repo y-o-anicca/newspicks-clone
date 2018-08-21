@@ -1,0 +1,12 @@
+<% provide(:title, 'ピック') %>
+<span class="center"><h1>Sign up</h1></span>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag("/pick", method: :post) do %>
+      <%= label_tag(:url, "url") %>
+      <%= text_field_tag(:url) %>
+      <%= submit_tag("記事をピック", class: "btn btn-black") %>
+    <% end %>
+  </div>
+</div>
