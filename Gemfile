@@ -5,9 +5,6 @@ source 'https://rubygems.org'
     "https://github.com/#{repo_name}.git"
 end
 
-<<<<<<< HEAD
-
-
 gem 'rails', '~> 5.1.4'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.7'
@@ -32,7 +29,6 @@ group :development, :local, :test do
 end
 
 group :development do
-<<<<<<< HEAD
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'

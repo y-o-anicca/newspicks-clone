@@ -16,10 +16,10 @@ class ArticlesController < ApplicationController
     @title = page.title
     @image = page.css('img').attr('src')
     if @article = current_user.articles.create(
-    title: @title,
-    image: @image,
-    url: params[:url]
-)
+      title: @title,
+      image: @image,
+      url: params[:url]
+    )
       @article.categories.create(status: status)
       redirect_to root_url
     else
