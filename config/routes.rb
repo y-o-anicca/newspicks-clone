@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  get 'pick', to: 'articles#pick'
-  post '/pick', to: 'articles#create'
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy'
+
+  resources :articles do
+    resources :microposts, only:[:create, :destroy]
+  end
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  get '/signup', to: 'users#new'
   root 'top_pages#home'
-  get '/signup' => 'users#new'
   resources :users
 end

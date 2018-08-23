@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_tag("/pick", method: :post) do %>
+    <%= form_tag('/articles', :method => :post) do %>
       <%= label_tag(:url, "url") %>
       <%= text_field_tag(:url) %>
 

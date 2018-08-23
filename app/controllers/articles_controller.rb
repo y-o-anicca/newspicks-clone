@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   require 'open-uri'
   require 'nokogiri'
 
-  def pick
+  def new
   end
 
   def create
@@ -26,6 +26,11 @@ class ArticlesController < ApplicationController
       flash[:danger] = "pick失敗しました"
       render 'top_pages/home'
     end
+  end
+
+  def show
+    @article = Article.find_by(id: params[:id])
+    @micropost = @article.microposts.build
   end
 
 end
