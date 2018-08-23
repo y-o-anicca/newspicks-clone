@@ -5,23 +5,23 @@ source 'https://rubygems.org'
     "https://github.com/#{repo_name}.git"
 end
 
-  gem 'rails', '~> 5.1.4'
-  gem 'mysql2', '>= 0.3.18', '< 0.5'
-  gem 'puma', '~> 3.7'
-  gem 'uglifier', '>= 1.3.0'
-  gem 'mini_racer'
-  gem 'coffee-rails', '~> 4.2'
-  gem 'turbolinks', '~> 5'
-  gem 'jbuilder', '~> 2.5'
-  gem 'bootstrap-sass', '~> 3.3.7'
-  gem 'sass-rails', '>= 3.2'
-  gem 'jquery-rails'
-  gem "font-awesome-rails"
-  gem 'bcrypt',         '3.1.11'
+gem 'rails', '~> 5.1.4'
+gem 'mysql2', '>= 0.3.18', '< 0.5'
+gem 'puma', '~> 3.7'
+gem 'uglifier', '>= 1.3.0'
+gem 'mini_racer'
+gem 'coffee-rails', '~> 4.2'
+gem 'turbolinks', '~> 5'
+gem 'jbuilder', '~> 2.5'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'sass-rails', '>= 3.2'
+gem 'jquery-rails'
+gem "font-awesome-rails"
+gem 'bcrypt',         '3.1.11'
+gem 'faker'
 
 
-group :development, :test do
-
+group :development, :local, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
@@ -29,7 +29,6 @@ group :development, :test do
 end
 
 group :development do
-
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'

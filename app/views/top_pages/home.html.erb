@@ -3,11 +3,11 @@
 
 <!-- sidebar -->
 <div class="row">
-	
+
   <aside class="col-md-3">
   	<br>
   	<br>
-  	
+
     <section class="user-info">
 
       <span class="block_elem">
@@ -15,52 +15,17 @@
         <%= gravatar_for @user %>
       </span>
       <span class="user_name block_elem"><%= @user.name %></span>
-      
+
       <span><%=link_to "company_name", "#", class: "block_elem" %> </span>
-     
-      
+
+
     </section>
 
-    
+
   </aside>
 
-<!-- end of sidebar -->
-
-
-<!-- mainbar -->
-	
-
-  <div class="col-md-9">
-  
-  	<br>
-  	<br>
-
-  	<div class="row col-md-offset-2">
-
-  	<div class="col-md-3 bg-primary">
-  		<div class="news_heading">news_heading</div>
-  		<div class="news_comment">this is comment</div>
-  	</div>
-
-  	<div class="col-md-3 bg-secondary">
-  		<div class="news_heading">news_heading</div>
-  		<div class="news_comment">this is comment</div>
-  	</div>
-
-  	<div class="col-md-3 bg-success">
-  		<div class="news_heading">news_heading</div>
-  		<div class="news_comment">this is comment</div>
-  	</div>
-    
-  </div>
-
-
-  </div>
-
+<%= render 'top_pages/body' %>
 </div>
 
 
 <!--  -->
-
-
- 

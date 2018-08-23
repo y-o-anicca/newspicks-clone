@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
- 	root 'top_pages#home'
- 	get '/signup' => 'users#new'
- 	resources :users
+
+  resources :articles do
+    resources :microposts, only:[:create, :destroy]
+  end
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  get '/signup', to: 'users#new'
+  root 'top_pages#home'
+  resources :users
 end

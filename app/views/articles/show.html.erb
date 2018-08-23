@@ -1,0 +1,23 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+          <td><%= image_tag @article.image %></td>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th><%= @article.title %>	</th>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <%= form_for([@article, @micropost]) do |f| %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "コメントを書く（任意）" %>
+  </div>
+
+  <%= f.submit "投稿", class: "btn btn-black" %>
+  <% end %>
+</div>

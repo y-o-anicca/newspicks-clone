@@ -1,56 +1,57 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
+  <div class="container">
 
+    <!-- menu_left -->
 
-        <!-- menu_left -->
-        <nav>
-          <ul class="nav navbar-nav navbar-left">
-            <li class="dropdown navbar-toggler">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="far fa-bars f0c9", style ="color:white;"></i> <b class="caret"></b>
-              </a>
+    <nav>
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown navbar-toggler">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="far fa-bars f0c9", style ="color:white;"></i> <b class="caret"></b>
+          </a>
 
-              <ul class="dropdown-menu">
-                <li><%= link_to "category1", "#" %></li>
-                <li><%= link_to "category2", "#" %></li>
+          <ul class="dropdown-menu">
+            <li><%= link_to "category1", "#" %></li>
+            <li><%= link_to "category2", "#" %></li>
+          </ul>
+        </li>
+      </ul>
 
-              </ul>
+      <ul class="nav navbar-nav navbar-brand-center">
+        <li><%= link_to image_tag("newspaper.png", alt: "logo", class: "news_logo"), root_url %></li>
+      </ul>
+      <!-- menu_right -->
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Account <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "マイピックス", "#" %></li>
+            <li><%= link_to "ユーザーを探す", "#" %></li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to "設定", "#" %>
             </li>
+            <li>
+              <%= link_to "ログアウト", logout_path, method: :delete %>
+            </li>
+          </ul>
+        </li>
 
+        <li><%= link_to "お知らせ", "#" %></li>
+        <li><%= link_to "ピック", new_article_path %></li>
+        <% else %>
 
-        </ul>
+        <li><%= link_to "アカウント登録", signup_path %></li>
+        <li><%= link_to "ログイン", login_path %></li>
 
-        <ul class="nav navbar-nav navbar-brand-center">
-         <li><%= link_to image_tag("newspaper.png", alt: "logo", class: "news_logo") %></li>
-        </ul>
-        <!-- menu_right -->
-
-        <ul class="nav navbar-nav navbar-right">
-
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "マイピックス", "#" %></li>
-              <li><%= link_to "ユーザーを探す", "#" %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "設定", "#" %>
-              </li>
-              <li>
-                <%= link_to "ログアウト", "#" %>
-              </li>
-            </ul>
-          </li>
-
-          <li><%= link_to "お知らせ", "#" %></li>
-          <li><%= link_to "ピック", "#" %></li>
-
-
-        </ul>
-      </nav>
-    </div>
-  </header>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
 
 <!-- the end of menu -->

@@ -1,7 +1,37 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+User.create!(name:  "Example User",
+             email: "example@railstutorial.org",
+             password:              "foobar",
+             password_confirmation: "foobar"
+)
+# article と　カテゴリーのseed
+
+categories = (1..10).to_a.map do |n|
+  names             = Faker::Name.unique.name
+  Category.create!(
+      name: Faker::Name.unique.name
+
+    )
+end
+
+
+
+
+
+
+# Create Posts
+# 100.times do |n|
+#   content     = Faker::Lorem.paragraph(30)
 #
-# Examples:
+#   article = Article.create!(
+#     content:      content
+#   )
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#
+#   # article.create_article_categories.create(
+#   #   category: categories[0]
+#   # )
+#
+#   article.create_article_categories.create(
+#     category: categories[rand(categories.size)]
+#   )
+# end
