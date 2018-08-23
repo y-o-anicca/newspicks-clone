@@ -11,8 +11,9 @@
           </a>
 
           <ul class="dropdown-menu">
-            <li><%= link_to "category1", "#" %></li>
-            <li><%= link_to "category2", "#" %></li>
+            <% Article.statuses.each do |category_name, category_num| %>
+            <li><%= link_to category_name, "/categories/#{category_num}" %></li>
+            <% end %>
           </ul>
         </li>
       </ul>

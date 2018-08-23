@@ -1,0 +1,18 @@
+<div class="row col-md-offset-2">
+  <% @articles.in_groups_of(3, false) do |row| %>
+  <% for article in row %>
+  <table>
+    <thead>
+      <tr>
+        <td><%= image_tag article.image%></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th><%=link_to(article.title, "articles/#{article.id}") %></th>
+      </tr>
+    </tbody>
+  </table>
+  <% end %>
+  <% end %>
+</div>

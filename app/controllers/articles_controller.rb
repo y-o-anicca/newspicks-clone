@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
 
   def create
     status_sym= params[:status].to_sym
-    status = Category.statuses[status_sym]
+    status = Article.statuses[status_sym]
     document = open(params[:url])
     content = document.read
     page = Nokogiri::HTML(content)
@@ -18,9 +18,9 @@ class ArticlesController < ApplicationController
     if @article = current_user.articles.create(
       title: @title,
       image: @image,
-      url: params[:url]
+      url: params[:url],
+      status: status
     )
-      @article.categories.create(status: status)
       redirect_to root_url
     else
       flash[:danger] = "pick失敗しました"
