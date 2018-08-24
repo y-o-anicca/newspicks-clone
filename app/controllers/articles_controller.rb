@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
   before_action :logged_in_user, only:[:pick, :create]
-
   require 'open-uri'
   require 'nokogiri'
 
@@ -15,12 +14,14 @@ class ArticlesController < ApplicationController
     page = Nokogiri::HTML(content)
     @title = page.title
     @image = page.css('img').attr('src')
-    if @article = current_user.articles.create(
+    @article = current_user.articles.build(
       title: @title,
       image: @image,
       url: params[:url],
       status: status
     )
+    @article.image ||= "https://via.placeholder.com/600x400"
+    if @article.save
       redirect_to root_url
     else
       flash[:danger] = "pick失敗しました"
@@ -30,7 +31,10 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find_by(id: params[:id])
+    @microposts = @article.microposts
     @micropost = @article.microposts.build
   end
+
+  private
 
 end
