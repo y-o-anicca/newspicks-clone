@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180821075849) do
+ActiveRecord::Schema.define(version: 20180824030808) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -18,20 +18,9 @@ ActiveRecord::Schema.define(version: 20180821075849) do
     t.string "title"
     t.string "url"
     t.string "image"
-  end
-
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "status", default: 0
-  end
-
-  create_table "create_article_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "article_id"
-    t.integer "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["article_id", "category_id"], name: "index_create_article_categories_on_article_id_and_category_id", unique: true
+    t.bigint "user_id", comment: "記事のユーザーid"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "microposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -64,4 +53,5 @@ ActiveRecord::Schema.define(version: 20180821075849) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "articles", "users"
 end

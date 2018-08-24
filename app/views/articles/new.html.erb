@@ -8,7 +8,7 @@
       <%= text_field_tag(:url) %>
 
       <%= label_tag(:status, "カテゴリー") %>
-      <%= select_tag :status, options_for_select(Category.statuses.keys.to_a) %>
+      <%= select_tag :status, options_for_select(Article.statuses.keys.to_a) %>
 
       <%= submit_tag("記事をピック", class: "btn btn-black") %>
     <% end %>

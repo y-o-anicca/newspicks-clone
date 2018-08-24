@@ -1,18 +1,6 @@
 class Article < ApplicationRecord
-  has_many :create_article_categories, dependent: :destroy
-  has_many :categories, through: :create_article_categories
-  has_many :picks, dependent: :destroy
-  has_many :users, through: :picks
-  has_many :microposts, dependent: :destroy 
-
-  #(name)カテゴリーに紐づいた投稿を返す
-  def self.categorized_as(name)
-    Category.find_by(name: params[:name]).articles
-  end
-
-  # カテゴリの名前の配列を返す
-  def category_list
-    categories.map(&:name).join.(",")
-  end
-
+  enum status: { Random: 0, Politic: 1, Business: 2, Economic: 3, Education: 4, Sport: 5, Technology: 6 }
+  has_many :microposts, dependent: :destroy
+  belongs_to :user
+  
 end

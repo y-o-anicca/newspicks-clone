@@ -17,7 +17,25 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "コメントを書く（任意）" %>
   </div>
-
+  <%= hidden_field_tag "article_id", @micropost.article_id %>
   <%= f.submit "投稿", class: "btn btn-black" %>
   <% end %>
+</div>
+
+<div>
+  <% if Pick.find_by(user_id: current_user.id, article_id: @article.id) %>
+    <%= link_to("/picks/#{@article.id}/destroy", {method: "delete"}) do %>
+      <span class="fa fa-heart like-btn-unlike"></span>
+    <% end %>
+  <% else %>
+    <%= link_to("/picks/#{@article.id}/create", {method: "post"}) do %>
+      <span class="fa fa-heart like-btn"></span>
+    <% end %>
+  <% end %>
+</div>
+
+<div>
+    <% @microposts.each do |micropost| %>
+    <h3><%= micropost.content %></h3>
+    <% end %>
 </div>
