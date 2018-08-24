@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-	has_many :picks, dependent: :destroy
-  has_many :articles, through: :picks
+  has_many :articles, dependent: :destroy
 	has_many :microposts, dependent: :destroy
 
 	attr_accessor :remember_token

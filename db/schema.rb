@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180823080022) do
+ActiveRecord::Schema.define(version: 20180824030808) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20180823080022) do
     t.string "url"
     t.string "image"
     t.integer "status", default: 0
+    t.bigint "user_id", comment: "記事のユーザーid"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "microposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -51,4 +53,5 @@ ActiveRecord::Schema.define(version: 20180823080022) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "articles", "users"
 end
