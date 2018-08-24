@@ -23,6 +23,18 @@
 </div>
 
 <div>
+  <% if Pick.find_by(user_id: current_user.id, article_id: @article.id) %>
+    <%= link_to("/picks/#{@article.id}/destroy", {method: "delete"}) do %>
+      <span class="fa fa-heart like-btn-unlike"></span>
+    <% end %>
+  <% else %>
+    <%= link_to("/picks/#{@article.id}/create", {method: "post"}) do %>
+      <span class="fa fa-heart like-btn"></span>
+    <% end %>
+  <% end %>
+</div>
+
+<div>
     <% @microposts.each do |micropost| %>
     <h3><%= micropost.content %></h3>
     <% end %>

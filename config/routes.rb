@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  post 'picks/:id/create', to: 'picks#create'
+  delete 'picks/:id/destroy', to: 'picks#destroy'
   resources :articles do
     resources :microposts, only:[:create, :destroy]
   end
