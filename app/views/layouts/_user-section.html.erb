@@ -1,0 +1,20 @@
+<div class = "left-section">
+  <section class="user-info">
+    <% if logged_in? %>
+    <span class="block_elem">
+        <%= gravatar_for @current_user %>
+    </span>
+    <span class="user_name block_elem"><%= @current_user.name %></span>
+
+    <span><%=link_to "company_name", "#", class: "block_elem" %>
+    </span>
+
+    <% else %>
+    <div class="block_elem">
+        <%=image_tag 'default-user.png', size: '48x48' %>
+    </div>
+    <span class="user_name">No Account</span>
+    <%= link_to "アカウント作成", signup_path, class: 'btn' %>
+    <% end %>
+  </section>
+</div>

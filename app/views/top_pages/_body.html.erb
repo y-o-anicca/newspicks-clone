@@ -1,24 +1,26 @@
-<div class="col-md-9">
 
-  <br>
-  <br>
-  <div class="row col-md-offset-2">
-    <% @articles = Article.all %>
-    <% @articles.in_groups_of(3, false) do |row| %>
-    <% for article in row %>
-    <table>
-      <thead>
-        <tr>
-          <td><%= image_tag article.image%></td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th><%=link_to(article.title, "articles/#{article.id}") %></th>
-        </tr>
-      </tbody>
-    </table>
-    <% end %>
-    <% end %>
-  </div>
-</div>
+  <% @articles = Article.all %>
+    <% @articles.each do |article| %>
+      <div class="news-card">
+
+        <div class="thumnail">
+          <%= image_tag article.image%>
+        </div>
+
+        <div class="news-title">
+          <%=link_to(article.title, "articles/#{article.id}") %>
+        </div>
+
+        <% article.microposts.each do |micropost| %>
+          <div class="profile">
+            <div class="profile-img">
+              <%= gravatar_for micropost.user %>
+            </div>
+            <span class="profile-name"><%= micropost.user.name %></span>
+          </div>
+          <div class="news-comment">
+            <p><%= micropost.content %></p>
+          </div>
+        <% end %>
+      </div>
+  <% end %>

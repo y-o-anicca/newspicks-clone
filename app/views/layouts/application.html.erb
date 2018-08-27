@@ -16,11 +16,15 @@
 
     <%= render 'layouts/header' %>
 
-  <div class="container">
+  <div class="body-container">
   <% flash.each do |message_type, message| %>
     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
   <% end %>
-    <%= yield %>
+  <div class="whole-section">
+    <%= render 'layouts/user-section' %>
+    <div class="right-section">
+      <%= yield %>
+    </div>
     <%= debug(params) if Rails.env.local? %>
   </div>
 
