@@ -1,0 +1,26 @@
+<% @picks.each do |pick| %>
+<% article = Article.find_by(id: pick.article_id) %>
+<div class="news-card">
+
+  <div class="thumnail">
+    <%= image_tag article.image%>
+  </div>
+
+  <div class="news-title">
+    <%=link_to(article.title, "articles/#{article.id}") %>
+  </div>
+
+  <% article.microposts.each do |micropost| %>
+    <div class="profile">
+      <div class="profile-img">
+        <%= gravatar_for micropost.user %>
+      </div>
+      <span class="profile-name"><%= micropost.user.name %></span>
+    </div>
+    <div class="news-comment">
+      <p><%= micropost.content %></p>
+    </div>
+  <% end %>
+</div>
+
+<% end %>

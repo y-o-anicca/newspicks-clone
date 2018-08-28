@@ -1,41 +1,50 @@
-<div>
-  <table>
-    <thead>
-      <tr>
-          <td><%= image_tag @article.image %></td>
-      </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <th><%= @article.title %>	</th>
-    </tr>
-    </tbody>
-  </table>
-</div>
-<div>
-  <%= form_for([@article, @micropost]) do |f| %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "コメントを書く（任意）" %>
-  </div>
-  <%= hidden_field_tag "article_id", @micropost.article_id %>
-  <%= f.submit "投稿", class: "btn btn-black" %>
-  <% end %>
-</div>
 
-<div>
-  <% if Pick.find_by(user_id: current_user.id, article_id: @article.id) %>
-    <%= link_to("/picks/#{@article.id}/destroy", {method: "delete"}) do %>
-      <span class="fa fa-heart like-btn-unlike"></span>
-    <% end %>
-  <% else %>
-    <%= link_to("/picks/#{@article.id}/create", {method: "post"}) do %>
-      <span class="fa fa-heart like-btn"></span>
-    <% end %>
-  <% end %>
-</div>
 
-<div>
-    <% @microposts.each do |micropost| %>
-    <h3><%= micropost.content %></h3>
-    <% end %>
-</div>
+    <div class ="containers-area">
+      <%= image_tag @article.image, class: "news-image" %>
+      <div class="news">
+        <h1><%= @article.title %></h1>
+      </div>
+      <%= link_to "続きを読む", @article.url, class:"btn btn-black" %>
+
+      <div class="news-comments">
+        <% if logged_in? %>
+        <div class="pick-editor clearfix">
+          <div class="block_elem user-avatar">
+              <%= gravatar_for @current_user %>
+          </div>
+
+          <%= form_for([@article, @micropost]) do |f| %>
+          <div class="block_elem">
+            <%= f.text_area :content, placeholder: "コメントを書く（任意）", class: "field" %>
+          </div>
+
+          <%= hidden_field_tag "article_id", @micropost.article_id %>
+          <div class="block_elem">
+            <%= f.submit "投稿", class: "btn btn-black" %>
+          </div>
+          <% end %>
+
+        <div class="block_elem pick">
+          <% if Pick.find_by(user_id: current_user.id, article_id: @article.id) %>
+          <%= link_to("/picks/#{@article.id}/destroy", {method: "delete"}) do %>
+          <span class="btn btn-black">-PICK</span>
+          <% end %>
+          <% else %>
+          <%= link_to("/picks/#{@article.id}/create", {method: "post"}) do %>
+          <span class="btn btn-black">+PICK</span>
+          <% end %>
+          <% end %>
+        </div>
+        </div>
+
+        <% end %>
+
+        <div class ="news-microposts">
+          <% @microposts.each do |micropost| %>
+          <h3><%= micropost.content %></h3>
+          <% end %>
+        </div>
+      </div>
+
+    </div>

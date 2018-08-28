@@ -17,7 +17,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-brand-center">
-        <li><%= link_to image_tag("newspaper.png", alt: "logo", class: "news_logo"), root_url %></li>
+        <li><%= link_to image_tag("logo_header.png", alt: "logo", class: "news_logo"), root_url %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -27,7 +27,7 @@
             Account <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to "マイピックス", "#" %></li>
+            <li><%= link_to "マイピックス", picks_path %></li>
             <li><%= link_to "ユーザーを探す", "#" %></li>
             <li class="divider"></li>
             <li>
@@ -44,7 +44,7 @@
         <% else %>
 
         <li><%= link_to "アカウント登録", signup_path %></li>
-        <li><%= link_to "ログイン", login_path %></li>
+        <li><%= link_to "ログイン", login_path, class:  "login_btn" %></li>
 
         <% end %>
       </ul>

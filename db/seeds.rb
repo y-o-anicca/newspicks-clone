@@ -3,20 +3,20 @@ User.create!(name:  "Example User",
              password:              "foobar",
              password_confirmation: "foobar"
 )
+
+#サンプルユーザーの作成
+99.times do |n|
+  name  = Faker::Name.name
+  email = "example-#{n+1}@railstutorial.org"
+  password = "password"
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password
+               )
+           end
+
 # article と　カテゴリーのseed
-
-categories = (1..10).to_a.map do |n|
-  names             = Faker::Name.unique.name
-  Category.create!(
-      name: Faker::Name.unique.name
-
-    )
-end
-
-
-
-
-
 
 # Create Posts
 # 100.times do |n|

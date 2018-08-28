@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   def new
   end
 
-  def show
-  	@user = User.find(params[:id])
+  def index
+    @users = User.all.paginate(page: params[:page])
   end
 
   def new
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "ユーザー登録完了"
-      redirect_to @user
+      redirect_to root_url
     else
       render 'new'
     end

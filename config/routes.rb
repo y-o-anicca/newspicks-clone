@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get 'picks', to: 'picks#show'
   post 'picks/:id/create', to: 'picks#create'
   delete 'picks/:id/destroy', to: 'picks#destroy'
   resources :articles do

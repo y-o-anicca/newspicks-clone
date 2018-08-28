@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
     content = document.read
     page = Nokogiri::HTML(content)
     @title = page.title
-    @image = page.css('img').attr('src')
+    @image = page.css('//meta[property="og:image"]/@content').to_s
     @article = current_user.articles.build(
       title: @title,
       image: @image,
